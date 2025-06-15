@@ -35,7 +35,7 @@ export default function SpotifyClone() {
           </button>
           <div className="flex items-center gap-3">
             <i className="fab fa-spotify text-green-500 text-2xl"></i>
-            <span className="text-xl font-bold">Spotify</span>
+            <span className="text-xl font-bold">Spotify Clone</span>
           </div>
           <button className="text-white hover:text-green-500 transition-colors">
             <i className="fas fa-search text-xl"></i>
