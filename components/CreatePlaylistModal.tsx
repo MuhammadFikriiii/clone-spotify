@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-
+import Image from "next/image"
 import { useState } from "react"
 import { useSpotifyStore } from "@/hooks/useSpotifyStore"
 
@@ -68,9 +68,16 @@ export default function CreatePlaylistModal() {
             <div className="flex items-center gap-4">
               <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center overflow-hidden">
                 {coverPreview ? (
-                  <img src={coverPreview || "/placeholder.svg"} alt="Cover" className="w-full h-full object-cover" />
+                  // Jika coverPreview dari FileReader (data:image), pakai <img>
+                  <img src={coverPreview} alt="Cover" className="w-full h-full object-cover" />
                 ) : (
-                  <i className="fas fa-music text-black text-2xl"></i>
+                  <Image
+                    src="/cover/whereweare.jpg"
+                    alt="Cover"
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover"
+                  />
                 )}
               </div>
               <div>

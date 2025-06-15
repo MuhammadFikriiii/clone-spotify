@@ -1,8 +1,8 @@
 "use client"
 
+import Image from "next/image"
 import { useSpotifyStore } from "@/hooks/useSpotifyStore"
 import TrackList from "./TrackList"
-
 
 export default function HomePage() {
   const { tracks, playTrack, setCurrentPage } = useSpotifyStore()
@@ -14,9 +14,24 @@ export default function HomePage() {
   ]
 
   const featuredPlaylists = [
-    { id: "daily-mix", title: "Daily Mix 1", description: "Ed Sheeran, Taylor Swift, dan lainnya", image: "/cover/nightchanges.jpg", },
-    { id: "discover", title: "Discover Weekly", description: "Temukan musik baru setiap Senin", image: "/cover/whereweare.jpg" },
-    { id: "release", title: "Release Radar", description: "Rilis terbaru dari artis yang Anda ikuti", image: "/cover/whereweare.jpg" },
+    {
+      id: "daily-mix",
+      title: "Daily Mix 1",
+      description: "Ed Sheeran, Taylor Swift, dan lainnya",
+      image: "/cover/nightchanges.jpg",
+    },
+    {
+      id: "discover",
+      title: "Discover Weekly",
+      description: "Temukan musik baru setiap Senin",
+      image: "/cover/whereweare.jpg",
+    },
+    {
+      id: "release",
+      title: "Release Radar",
+      description: "Rilis terbaru dari artis yang Anda ikuti",
+      image: "/cover/whereweare.jpg",
+    },
   ]
 
   const handleQuickPickClick = (id: string) => {
@@ -42,7 +57,14 @@ export default function HomePage() {
               className="flex items-center bg-white/10 rounded overflow-hidden hover:bg-white/20 transition-all duration-200 group animate-slideInUp"
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
-              <img src={pick.image || "/cover/whereweare.jpg"} alt={pick.title} className="w-20 h-20 object-cover" />
+              <div className="relative w-20 h-20 flex-shrink-0">
+                <Image
+                  src={pick.image || "/cover/whereweare.jpg"}
+                  alt={pick.title}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
               <span className="flex-1 px-4 font-semibold text-left">{pick.title}</span>
               <div className="mr-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-200">
                 <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-black hover:scale-105 transition-transform">
@@ -69,11 +91,13 @@ export default function HomePage() {
               className="bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition-all duration-200 group animate-slideInUp hover:-translate-y-2 hover:shadow-xl"
               style={{ animationDelay: `${0.1 + index * 0.1}s` }}
             >
-              <div className="relative mb-4">
-                <img
+              <div className="relative mb-4 aspect-square w-full">
+                <Image
                   src={playlist.image}
                   alt={playlist.title}
-                  className="w-full rounded-lg aspect-square object-cover"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
                 />
                 <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-200">
                   <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-black hover:scale-105 transition-transform shadow-lg">

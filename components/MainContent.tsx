@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useSpotifyStore } from "@/hooks/useSpotifyStore"
 import HomePage from "../components/HomePage"
 import SearchPage from "../components/SearchPage"
@@ -43,7 +44,15 @@ export default function MainContent() {
           </button>
         </div>
         <button className="flex items-center gap-2 bg-black bg-opacity-70 rounded-full px-2 py-1 hover:bg-white hover:bg-opacity-10 transition-all duration-200">
-          <img src="/profil/pp.png" alt="Profile" className="w-7 h-7 rounded-full" />
+          <div className="relative w-7 h-7">
+            <Image
+              src="/profil/pp.png"
+              alt="Profile"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full"
+            />
+          </div>
           <span className="font-semibold text-sm hidden sm:block">User</span>
           <i className="fas fa-chevron-down text-sm"></i>
         </button>
