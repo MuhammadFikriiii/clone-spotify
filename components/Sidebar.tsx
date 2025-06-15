@@ -50,7 +50,7 @@ export default function Sidebar({ isOpen, onClose, isMobile }: SidebarProps) {
             <div className="flex justify-between items-center mb-8">
               <div className="flex items-center gap-3">
                 <i className="fab fa-spotify text-green-500 text-2xl"></i>
-                <span className="text-2xl font-bold">Spotify</span>
+                <span className="text-2xl font-bold">Spotify Clone</span>
               </div>
               {isMobile && (
                 <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
@@ -103,8 +103,8 @@ export default function Sidebar({ isOpen, onClose, isMobile }: SidebarProps) {
             </div>
 
             {/* Playlists */}
-            <div className="border-t border-gray-700 pt-4 flex-1 overflow-hidden">
-              <div className="overflow-y-auto flex-1 pr-1 scrollbar-thin">
+            <div className="border-t border-gray-700 pt-4 h-full overflow-hidden">
+              <div className="overflow-y-auto h-full pr-1 scrollbar-thin">
                 {playlists.map((playlist) => (
                   <div key={playlist.id} className="group relative">
                     <button
@@ -116,7 +116,9 @@ export default function Sidebar({ isOpen, onClose, isMobile }: SidebarProps) {
                       </div>
                       <div className="flex-1 min-w-0 text-left">
                         <div className="font-normal truncate">{playlist.name}</div>
-                        <div className="text-xs text-gray-500 truncate">Playlist • {playlist.songs.length} lagu</div>
+                        <div className="text-xs text-gray-500 truncate">
+                          Playlist • {playlist.songs.length} lagu
+                        </div>
                       </div>
                     </button>
 
